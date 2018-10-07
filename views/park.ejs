@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Jtop3.lk</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- browser img code  -->
+  <link rel="icon" href="/likeButonLogo2.png">
+  <!-- online link for bootstrap, jquary  -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <!--  -->
+  <link rel="stylesheet" href="/CSS/style.css">
+<style>
+body{
+  width: 100%;
+  height: 100%;
+  min-width: 1000px;
+  min-height: 1000px;
+
+}
+.navsize{
+  width: auto;
+}
+html, body, {
+    position:fixed;
+    top:0;
+    bottom:0;
+    left:0;
+    right:0;
+}
+.timerplace{
+  margin-left: 876px;
+  margin-top: 30px;
+  text-shadow: 0 1px 0 #ccc,
+                 0 2px 0 #c9c9c9,
+                 0 3px 0 #bbb,
+                 0 4px 0 #b9b9b9,
+                 0 5px 0 #aaa,
+                 0 6px 1px rgba(0,0,0,.1),
+                 0 0 5px rgba(0,0,0,.1),
+                 0 1px 3px rgba(0,0,0,.3),
+                 0 3px 5px rgba(0,0,0,.2),
+                 0 5px 10px rgba(0,0,0,.25),
+                 0 10px 10px rgba(0,0,0,.2),
+                 0 20px 20px rgba(0,0,0,.15);
+    text-transform: lowercase;
+    /*color: #5e91ff;*/
+}
+
+
+.imgSize{
+  width: 50px;
+  height: 50px;
+}
+/*=============like butto css===================================*/
+
+
+//Loading icon
+.loader,
+.loader:before,
+.loader:after {
+  border-radius: 50%;
+}
+.loader:before,
+.loader:after {
+  position: absolute;
+  content: '';
+}
+.loader:before {
+  width: 2.6em;
+  height: 5.1em;
+  background: #fff;
+  border-radius: 5.1em 0 0 5.1em;
+  top: -0.1em;
+  left: -0.1em;
+  transform-origin: 2.6em 2.55em;
+  animation: load2 2s infinite ease 1.5s;
+}
+.loader {
+  font-size: 11px;
+  text-indent: -99999em;
+  margin: 55px auto;
+  position: relative;
+  width: 5em;
+  height: 5em;
+  box-shadow: inset 0 0 0 0.5em #999;
+  transform: translateZ(0);
+}
+.loader:after {
+  width: 2.6em;
+  height: 5.1em;
+  background: #fff;
+  border-radius: 0 5.1em 5.1em 0;
+  top: -0.1em;
+  left: 2.55em;
+  transform-origin: 0px 2.55em;
+  animation: load2 2s infinite ease;
+}
+@keyframes load2 {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.loader,
+.loader:before,
+.loader:after {
+  margin: 0;
+  transform: scale(0.4);
+}
+
+.button {
+  display: inline-block;
+  position: relative;
+  vertical-align: middle;
+  padding: 12px 25px 14px 56px;
+  margin: 0 0 1rem 0;
+  background-color: #fff;
+  border-radius: 100em;
+  border: 2px solid #999;
+  color: #999;
+  text-align: center;
+  line-height: 1;
+  cursor: pointer;
+  -webkit-appearance: none;
+  transition: all 0.25s ease-in-out;
+
+  &:hover {
+    border-color: #333;
+    color: #333;
+
+    .button--icon-like {
+      fill: #333;
+    }
+  }
+
+  &.is-liked {
+    border-color: #f00;
+    color: #f00;
+
+    .button--icon-like {
+      fill: #f00;
+    }
+  }
+
+  &:disabled {
+    border: 2px solid #999;
+    color: #999;
+    cursor: default;
+  }
+}
+
+.button--text {
+  display: inline-block;
+  font-size: 24px;
+}
+
+.button--icon {
+  position: absolute;
+  top: 13px;
+  left: 25px;
+  transition: all 0.4s ease-in-out;
+
+  .is-loading & {
+    opacity: 0;
+  }
+}
+
+.button--icon-like {
+  fill: #999;
+
+  .is-loading & {
+    transform: scale(1.25);
+  }
+  //transition: all 0.3s ease-in-out;
+}
+
+.button--icon-loading {
+  top: -2px;
+  left: 10px;
+  opacity: 0;
+  //transition: opacity 0.25s ease-in-out;
+
+  .is-loading & {
+    opacity: 1;
+  }
+}
+/*
+============================ end =======================*/
+.opercity{
+  opacity: 0.3;
+     filter: alpha(opacity=50);
+}
+
+
+
+/*
+======================= footer box start ==================================*/
+
+/*
+===================================================================================*/
+</style>
+</head>
+<body id="wrapper">
+  <div  style="margin-top:5px;">
+
+   <div align="left" style="margin:4px 0 6px 0"><img class="SIVI"src="/New Project.png">
+
+  </div>
+</div>
+<br>
+  <!-- navationbar code  -->
+  <ul class="navsize">
+    <li><a href="/park" ><b>Home</b></a></li>
+    <!-- <li><a href="index.html" class="active">Home</a></li> -->
+    <li  ><a href="/education">Education</a></li>
+    <li  ><a href="/restorent">Restorent</a></li>
+    <li  ><a href="/hotel">Hotel</a></li>
+    <li  ><a href="/park" class="active">Park</a></li>
+    <li  ><a href="/temple">Temple</a></li>
+    <li  ><a href="/supermarket">Supermarket</a></li>
+
+    <li style="float:right"><a href="/logout"><span class="fa fa-anchor"> LogOut</span> </a></li>
+
+  </ul>
+  <!--  -->
+
+
+    <!-- ==========================================
+    ============timer code start ================ -->
+
+  <div class="timerplace">
+    <h1><b><p id="demo"></p></b></h1>
+  </div>
+
+    <script>
+    // Set the date we're counting down to
+    var countDownDate = new Date("September 15, 2019 00:00:00").getTime();
+
+    // Update the count down every 1 second
+    var x = setInterval(function() {
+
+      // Get todays date and time
+      var now = new Date().getTime();
+
+      // Find the distance between now and the count down date
+      var distance = countDownDate - now;
+
+      // Time calculations for days, hours, minutes and seconds
+      var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+      // Display the result in the element with id="demo"
+      document.getElementById("demo").innerHTML = days + "d " + hours + "h "
+      + minutes + "m " + seconds + "s ";
+
+      // If the count down is finished, write some text
+      if (distance < 0) {
+        clearInterval(x);
+        document.getElementById("demo").innerHTML = "EXPIRED";
+      }
+    }, 1000);
+    </script>
+
+  <!--
+    ============================================
+    ===========timer code end =================== -->
+
+
+
+<!-- panale start-->
+  <div class="MyBoxStyle box ">
+
+<body>
+       <img class="like1img"src="/1,2,3 icone/likeButonLogo2.png" alt="1st"><br><figure class="snip0051">
+ <img src="/imge/sp.jpg" alt="sample1"/>
+
+ <figcaption>
+ <h2>SP<span></span></h2>
+ <p>Park  </p>
+ </figcaption>
+ </figure>
+
+
+<br>
+<div class="box" >
+<img src="/1,2,3 icone/likeButonLogo2(1).png" class="like2img"><br>
+
+   <figure class="snip0052">
+
+<img src="/imge/GP.jpg" alt="sample1"/>
+
+<figcaption>
+<h2>GP <span></span></h2>
+<p>Park</p>
+</figcaption>
+</figure>
+   <br>
+</div>
+   <div>
+     <img src="/1,2,3 icone/likeButonLogo2(2).png" class="like3img"> <br>
+
+   <figure class="snip0051">
+<img src="/imge/OPR.jpg" alt="sample1"/>
+
+<figcaption>
+  <h2>OPR<span></span></h2>
+  <p> Park </p>
+</figcaption>
+</figure>
+</div>
+
+
+
+
+
+
+    <!-- profile box js code start  -->
+    <script>
+    $("figure").mouseleave(
+      function () {
+        $(this).removeClass("hover");
+      }
+    );
+    </script>
+   <!-- profilebox code end  -->
+
+</div>
+</div>
+</body>
+
+</div>
+<!-- ==========================================================
+===========Vote Box code start ===========================
+========================================================== -->
+
+  <div class="MyBoxStyleVote">
+    <div class="voteBoxHeading">
+      <h1 class="textStyle1">Vote your  self </h1>
+    </div>
+    <div class="box introbox">
+        <div class="box">
+
+
+          <button class="button js-likeButton opercity">
+              <div class="loader button--icon button--icon-loading js-likeLoadingIcon">Loading...</div>
+              <svg class="button--icon button--icon-like js-likeIcon" width="24" height="24" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M896 1664q-26 0-44-18l-624-602q-10-8-27.5-26t-55.5-65.5-68-97.5-53.5-121-23.5-138q0-220 127-344t351-124q62 0 126.5 21.5t120 58 95.5 68.5 76 68q36-36 76-68t95.5-68.5 120-58 126.5-21.5q224 0 351 124t127 344q0 221-229 450l-623 600q-18 18-44 18z"/></svg>
+              <span class="button--text js-likeText">SP</span>
+        </button>
+        <span class="js-numberOfLikes">702</span> Votes
+        </div>
+
+
+        <div>
+          <button class="button js-likeButton opercity">
+            <div class="loader button--icon button--icon-loading js-likeLoadingIcon">Loading...</div>
+            <svg class="button--icon button--icon-like js-likeIcon" width="24" height="24" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M896 1664q-26 0-44-18l-624-602q-10-8-27.5-26t-55.5-65.5-68-97.5-53.5-121-23.5-138q0-220 127-344t351-124q62 0 126.5 21.5t120 58 95.5 68.5 76 68q36-36 76-68t95.5-68.5 120-58 126.5-21.5q224 0 351 124t127 344q0 221-229 450l-623 600q-18 18-44 18z"/></svg>
+            <span class="button--text js-likeText">GP </span>
+          </button>
+          <span class="js-numberOfLikes">118</span> Votes
+        </div>
+
+
+
+
+          <button class="button js-likeButton opercity">
+  <div class="loader button--icon button--icon-loading js-likeLoadingIcon">Loading...</div>
+  <svg class="button--icon button--icon-like js-likeIcon" width="24" height="24" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M896 1664q-26 0-44-18l-624-602q-10-8-27.5-26t-55.5-65.5-68-97.5-53.5-121-23.5-138q0-220 127-344t351-124q62 0 126.5 21.5t120 58 95.5 68.5 76 68q36-36 76-68t95.5-68.5 120-58 126.5-21.5q224 0 351 124t127 344q0 221-229 450l-623 600q-18 18-44 18z"/></svg>
+  <span class="button--text js-likeText">OPR</span>
+    </button>
+      <span class="js-numberOfLikes">712</span> Votes
+    </div>
+
+
+
+          <button class="button js-likeButton opercity">
+            <div class="loader button--icon button--icon-loading js-likeLoadingIcon">Loading...</div>
+            <svg class="button--icon button--icon-like js-likeIcon" width="24" height="24" viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M896 1664q-26 0-44-18l-624-602q-10-8-27.5-26t-55.5-65.5-68-97.5-53.5-121-23.5-138q0-220 127-344t351-124q62 0 126.5 21.5t120 58 95.5 68.5 76 68q36-36 76-68t95.5-68.5 120-58 126.5-21.5q224 0 351 124t127 344q0 221-229 450l-623 600q-18 18-44 18z"/></svg>
+            <span class="button--text js-likeText">NP</span>
+          </button>
+          <span class="js-numberOfLikes">112</span> Votes
+        </div>
+
+
+
+
+
+
+</div>
+
+</div>
+<script>
+(function() {
+
+  var initialise = function() {
+    $(".js-likeButton").on("click", onClickLikeButton);
+  };
+
+  var onClickLikeButton = function() {
+    var $thisButton = $(this);
+    var button = {
+      $likeButton: $thisButton,
+      $likeIcon: $thisButton.find(".js-likeIcon"),
+      $loadingIcon: $thisButton.find(".js-likeLoadingIcon"),
+      userHasLikedThisPost: $thisButton.hasClass("is-liked")
+    };
+    likeOrUnlikeSequence(button);
+  };
+
+  var likeOrUnlikeSequence = function(button) {
+    var sendLikeRequest = likeRequest(button);
+    button.$likeButton.prop("disabled", true);
+    button.$likeButton.addClass("is-loading");
+    return sendLikeRequest
+      .then(postLikeSucceeded)
+      .catch(postLikeFailed);
+  }
+
+  var likeRequest = function(button) {
+    return new Promise(function(resolve, reject) {
+      fake_ajax_response()
+        .done(function likePostAjaxDone() {
+          resolve(button);
+        })
+        .fail(function likePostAjaxFail() {
+          reject(button)
+        });
+    });
+  };
+
+  var postLikeSucceeded = function(responses) {
+    var button = responses;
+    console.log(button);
+    var $likesDisplay = button.$likeButton.siblings(".js-numberOfLikes")
+    var numberOfLikes = $likesDisplay.text();
+
+    if (button.userHasLikedThisPost) {
+      numberOfLikes--;
+      button.$likeButton.removeClass("is-liked");
+    } else {
+      numberOfLikes++;
+      button.$likeButton.addClass("is-liked");
+    }
+    $likesDisplay.text(numberOfLikes);
+    button.$likeButton.prop("disabled", false);
+    button.$likeButton.removeClass("is-loading");
+  };
+
+  var postLikeFailed = function(button) {
+    console.log("Like Failed");
+    button.$likeButton.prop("disabled", false);
+    button.$likeButton.removeClass("is-loading");
+  };
+
+
+  // TODO: remove this function when ajax call added
+  function fake_ajax_response(response) {
+    var deferred = $.Deferred();
+    setTimeout(function() {
+      deferred.resolve(response);
+    }, Math.floor(400 + Math.random() * 2000));
+    return deferred.promise();
+  }
+
+  initialise();
+})();
+
+</script>
+</div>
+<!-- panale end -->
+
+
+
+
+
+<!-- footerCode start -->
+  		<footer class="footer-distributed">
+        <div class="footer-left">
+          <img class="Footer-logo"src="/New Project.png">
+	         <!-- <p class="footer-company-name"> &copy; 2018</p> -->
+  			</div>
+  			<div class="footer-center">
+          <div>
+  					<i class="fa fa-map-marker"></i>
+  					<p><span>68/5,Rasavinthoddam,<br>Jaffna, Sri Lanka </span> </p>
+  				</div>
+  				<div>
+  					<i class="fa fa-phone"></i>
+  					<p>+94 750459988</p>
+  				</div>
+  				<div>
+  					<i class="fa fa-envelope"></i>
+  					<p><a href="#">info@Jtop3.lk</a></p>
+  				</div>
+  			</div>
+  			<div class="footer-right">
+          <p class="footer-company-about">
+  					<span>About the website</span>
+            Our  website get started in 2018 our team show influence in jaffna . It is user friendly and professional page.
+          			</p>
+  				<div class="footer-icons">
+  					<a href="#"><i class="fa fa-facebook"></i></a>
+  					<a href="#"><i class="fa fa-twitter"></i></a>
+  					<a href="#"><i class="fa fa-linkedin"></i></a>
+  					<a href="#"><i class="fa fa-github"></i></a>
+  				</div>
+        </div>
+	     </footer>
+</body>
+</html>

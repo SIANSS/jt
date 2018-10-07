@@ -7,6 +7,33 @@ module.exports = function(app, passport) {
         res.render('index.ejs');
     });
 
+//
+// ================Education======================
+app.get('/education', function(req, res) {
+    res.render('education.ejs');
+});
+// ================Restorent======================
+app.get('/restorent', function(req, res) {
+    res.render('restorent.ejs');
+});
+// ================Hotel======================
+app.get('/hotel', function(req, res) {
+    res.render('hotel.ejs');
+});
+// ================Park======================
+app.get('/park', function(req, res) {
+    res.render('park.ejs');
+});
+// ================Temple======================
+app.get('/temple', function(req, res) {
+    res.render('temple.ejs');
+});
+// ================Supermarket======================
+app.get('/supermarket', function(req, res) {
+    res.render('supermarket.ejs');
+});
+
+
     // PROFILE SECTION =========================
     app.get('/profile', isLoggedIn, function(req, res) {
         res.render('profile.ejs', {

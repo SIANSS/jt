@@ -1,16 +1,44 @@
 <!doctype html>
 <html>
 <head>
-    <title>Node Authentication</title>
+    <title>Login</title>
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
     <style>
         body         { padding-top:80px; }
+        #siginupBox {
+      box-sizing: content-box;
+      width: 420px;
+      height: auto;
+      padding: 30px;
+      /* border: 10px solid #5e91ff; */
+      opacity: 0.8;
+      background-color: #e1e1e1;
+  }
+  .background-image{
+    width: 100%;
+    height: 100%;
+  }
+
+  .butonsiginup{
+    padding: 7px;
+
+    margin: 7px;
+    /* background-color: #41A445; */
+  }
+
+  body {
+   background-image: url("/bodyBacroundImage.jpg");
+   image-resolution: 100%;
+   background-size: cover;
+   /* background-color: #cccccc; */
+}
     </style>
+
 </head>
-<body>
+<body  >
 <div class="container">
-<div class="col-sm-6 col-sm-offset-3">
+<div class="col-sm-6 col-sm-offset-3"  id="siginupBox">
 
     <h1><span class="fa fa-sign-in"></span> Login</h1>
 
@@ -29,7 +57,7 @@
             <input type="password" class="form-control" name="password">
         </div>
 
-        <button type="submit" class="btn btn-warning btn-lg">Login</button>
+        <button type="submit" class="btn butonsiginup btn-lg">Login</button>
     </form>
 
     <hr>
@@ -37,11 +65,7 @@
     <p>Need an account? <a href="/signup">Signup</a></p>
     <p>Or go <a href="/">home</a>.</p>
 
-    <div class="text-center">
-        <p>A demo by <a href="http://scotch.io">Scotch</a>.</p>
-        <p>Visit the <a href="http://scotch.io/tutorials/javascript/easy-node-authentication-setup-and-local">tutorial</a>.</p>
-    </div>
-
+  </div>
 </div>
 </div>
 </body>
